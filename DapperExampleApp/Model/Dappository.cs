@@ -16,7 +16,7 @@ public class Dappository
         get
         {
             if (connection == null || connection.State != ConnectionState.Open)
-            {
+            { 
                 connection = new SqlConnection(connStr);
             }
             return connection;
