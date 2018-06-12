@@ -1,0 +1,67 @@
+CREATE DATABASE DapperTestDb
+
+GO
+
+use DapperTestDb
+
+go
+
+create table WeaponTypes(
+Id int primary key identity,
+Title nvarchar(255) not null unique);
+
+go
+
+create table Weapons(
+Id int primary key identity,
+Name nvarchar(255) not null,
+Damage int not null,
+WeaponType_Id int not null foreign key references WeaponTypes(Id));
+
+go
+
+create table Armys (
+Id int primary key identity,
+Title nvarchar(255) not null,
+Tagline nvarchar(255));
+
+go
+
+create table Units(
+Id int primary key identity,
+Name nvarchar(255) not null,
+Health int not null,
+Weapon_Id int not null foreign key references Weapons(Id) on delete cascade,
+Army_Id int not null foreign key references Armys(Id) on delete cascade);
+
+go 
+
+insert into Armys(Title, Tagline) values ('Midgaard', 'Wir trinken zusammen');
+insert into Armys(Title, Tagline) values ('Songaard', 'Deutchland uber alles');
+
+go
+
+insert into WeaponTypes(Title) values('Sword');
+insert into WeaponTypes(Title) values('Axe');
+insert into WeaponTypes(Title) values('Bow');
+insert into WeaponTypes(Title) values('Spear');
+insert into WeaponTypes(Title) values('Rode');
+insert into WeaponTypes(Title) values('Mace');
+
+go
+
+insert into Weapons(Name, Damage, WeaponType_Id) values('Zweihander', 120, 1);
+insert into Weapons(Name, Damage, WeaponType_Id) values('Broad Axe', 110, 2);
+insert into Weapons(Name, Damage, WeaponType_Id) values('Composute Box', 70, 3);
+insert into Weapons(Name, Damage, WeaponType_Id) values('Lance', 90, 4);
+insert into Weapons(Name, Damage, WeaponType_Id) values('Golden Rode', 30, 5);
+insert into Weapons(Name, Damage, WeaponType_Id) values('Club', 60, 6);
+
+go
+
+insert into Units(Name, Health, Weapon_Id, Army_Id) values('Turnik', 100, 1, 1);
+insert into Units(Name, Health, Weapon_Id, Army_Id) values('Turbaza', 105, 2, 1);
+insert into Units(Name, Health, Weapon_Id, Army_Id) values('Turlan', 90, 3, 2);
+insert into Units(Name, Health, Weapon_Id, Army_Id) values('Turpol', 95, 4, 1);
+insert into Units(Name, Health, Weapon_Id, Army_Id) values('Turneps', 85, 5, 2);
+insert into Units(Name, Health, Weapon_Id, Army_Id) values('Turzul', 115, 6, 2);
