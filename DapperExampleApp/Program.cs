@@ -4,7 +4,15 @@
     {
         static void Main(string[] args)
         {
-            var dp = new Dappository();
+            //var dp = new Dappository();
+            var dp = new DappositoryCRUD();
+
+            //db.Database.Log = (log) =>
+            //{
+            //    Console.ForegroundColor = ConsoleColor.DarkGray;
+            //    Console.WriteLine(log);
+            //    Console.ForegroundColor = ConsoleColor.White;
+            //};
 
             //var wts = dp.GetWeaponTypes();
 
@@ -20,7 +28,7 @@
             //System.Console.WriteLine(dp.GetWeaponTypeById(7));
 
             //System.Console.WriteLine();
-             
+
             //foreach (var item in dp.GetWeapons())
             //{
             //    System.Console.WriteLine(item); 
@@ -34,12 +42,21 @@
             //}
 
 
-            System.Console.WriteLine();
+            //System.Console.WriteLine();
 
-            foreach (var item in dp.GetArmies())
-            {
-                System.Console.WriteLine(item);
-            }
+            //foreach (var item in dp.GetArmies())
+            //{
+            //    System.Console.WriteLine(item);
+            //}
+
+            //foreach (var item in dp.GetWeaponTypes())
+            //{
+            //    System.Console.WriteLine(item);
+            //}        
+
+            //System.Console.WriteLine(dp.GetWeaponTypeById(1));
+
+
         }
     }
 }
